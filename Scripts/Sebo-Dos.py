@@ -7,20 +7,20 @@ import os
 FirstStartBarTime = random.randint(25, 100)
 StartBarTime = random.randint(10, 25)
 
-if open("Data/FirstStart.data", "r").read() == "True":
+if open("./Data/FirstStart.data", "r").read() == "True":
     StartBarTime = FirstStartBarTime
-    open("Data/FirstStart.data", "w").write("False")
+    open("./Data/FirstStart.data", "w").write("False")
 for StartBar in tqdm.tqdm(range(StartBarTime)):
         time.sleep(0.1)
-if open("Data/Username.data", "r").read() == " ":
+if open("./Data/Username.data", "r").read() == " ":
     print("")
     NewName = input("Name: ")
-    open("Data/Username.data", "w").write(NewName)
+    open("./Data/Username.data", "w").write(NewName)
         
 print("")
 print("Sebo-Dos Version: 1.8")
 print("")
-print("Hello " + str(open("Data/Username.data", "r").read()) + "!")
+print("Hello " + str(open("./Data/Username.data", "r").read()) + "!")
 
 def DosMain():
     Icommand = ["close", "return", "help"]
@@ -28,10 +28,10 @@ def DosMain():
     print("")
     MainInput = str(input("Sebo-Dos:\ "))
     if MainInput == Icommand[0]:
-        open("Data/Closed.data", "w").write("True")
+        open("./Data/Closed.data", "w").write("True")
     elif MainInput == Icommand[1]:
-        open("Data/Closed.data", "w").write("True")
-        open("Data/Returned.data", "w").write("True")
+        open("./Data/Closed.data", "w").write("True")
+        open("./Data/Returned.data", "w").write("True")
     elif MainInput == Icommand[2]:
         print("Commands:")
         for Icommands in Icommand:

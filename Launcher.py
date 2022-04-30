@@ -6,7 +6,7 @@ Start = True
 
 def DataError():
         print("")
-        print(open("Errors/Data.error", "r").read())
+        print(open("./Errors/Data.error", "r").read())
         time.sleep(10)
 
 while True:
@@ -16,7 +16,7 @@ while True:
         print("")
     else:
         print("")
-        print(open("Errors/Unknown.error", "r").read())
+        print(open("./Errors/Unknown.error", "r").read())
         time.sleep(10)
         break
     MainInput = str(input("Launcher: "))
@@ -27,34 +27,34 @@ while True:
         for commands in command:
             print(commands)
     elif MainInput == command[2]:
-        open("Data/Installed.data", "w").write("False")
-        open("Data/FirstStart.data", "w").write("True")
-        open("Data/Username.data", "w").write(" ")
+        open("./Data/Installed.data", "w").write("False")
+        open("./Data/FirstStart.data", "w").write("True")
+        open("./Data/Username.data", "w").write(" ")
     elif MainInput == command[3]:
         os.system("py Scripts/Install.py")
-        open("Data/Installed.data", "w").write("True")
+        open("./Data/Installed.data", "w").write("True")
     elif MainInput == command[4]:
         print("")
-        if open("Data/Installed.data", "r").read() == "True":
+        if open("./Data/Installed.data", "r").read() == "True":
             os.system("py Scripts/Sebo-Dos.py")
-            if open("Data/Closed.data", "r").read() == "True":
-                if open("Data/Returned.data", "r").read() == "True":
-                    open("Data/Closed.data", "w").write("False")
-                    open("Data/Returned.data", "w").write("False")
-                elif open("Data/Returned.data", "r").read() == "False":
-                    open("Data/Closed.data", "w").write("False")
+            if open("./Data/Closed.data", "r").read() == "True":
+                if open("./Data/Returned.data", "r").read() == "True":
+                    open("./Data/Closed.data", "w").write("False")
+                    open("./Data/Returned.data", "w").write("False")
+                elif open("./Data/Returned.data", "r").read() == "False":
+                    open("./Data/Closed.data", "w").write("False")
                     break
                 else:
                     DataError()
                     break
-            elif open("Data/Closed.data", "r").read() == "False":
+            elif open("./Data/Closed.data", "r").read() == "False":
                 print("")
-                print(open("Errors/Crash.error", "r").read())
+                print(open("./Errors/Crash.error", "r").read())
             else:
                 DataError()
                 break
-        elif open("Data/Installed.data", "r").read() == "False":
-           print(open("Errors/NotInstalled.error", "r").read())
+        elif open("./Data/Installed.data", "r").read() == "False":
+           print(open("./Errors/NotInstalled.error", "r").read())
         else:
             DataError()
             break

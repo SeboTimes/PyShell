@@ -1,13 +1,9 @@
-import imp
-
-
 import tqdm
-import time
 import os
 
 Todo = [
-    "pip install --upgrade pip",
-    "pip install PySimpleGUI"
+    "pip install --upgrade pip"
+    "pip install dhooks"
     ]
 PBar = tqdm.tqdm(total=len(Todo))
 

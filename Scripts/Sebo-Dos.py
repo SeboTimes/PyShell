@@ -1,50 +1,26 @@
 from genericpath import exists
 import random
+import tqdm
 import time
 import os
 
-import PySimpleGUI as sg
-import tqdm
-
-StartWindow = sg.Window(title="Sebo-Dos", icon="Icons/Sebo-Dos.ico", background_color="blue", keep_on_top=True, disable_minimize=True, margins=(50,0), layout=[
-    [sg.Button("Start Sebo-Dos")],
-    [sg.Button("Reset Data")]
-    ])
-
 FirstStartBarTime = random.randint(25, 100)
 StartBarTime = random.randint(10, 25)
-WinClosed = False
 
-while True:
-    event, values = StartWindow.read()
-    if event == "Reset Data":
-        open("Data/FirstStart.data", "w").write("True")
-        open("Data/Username.data", "w").write(" ")
-    if open("Data/FirstStart.data", "r").read() == "True":
-        StartBarTime = FirstStartBarTime
-    if event == "Start Sebo-Dos":
-        StartWindow.close()
-        for StartBar in tqdm.tqdm(range(StartBarTime)):
-            time.sleep(0.1)
-        break
-    if event == sg.WIN_CLOSED:
-        open("Data/Closed.data", "w").write("True")
-        open("Data/Returned.data", "w").write("True")
-        WinClosed = True
-        break
-
-if WinClosed == False:
-    if open("Data/Username.data", "r").read() == " ":
-        print("")
-        NewName = input("Name: ")
-        open("Data/Username.data", "w").write(NewName)
-    if open("Data/FirstStart.data", "r").read() == "True":
-        open("Data/FirstStart.data", "w").write("False")
+if open("Data/FirstStart.data", "r").read() == "True":
+    StartBarTime = FirstStartBarTime
+    open("Data/FirstStart.data", "w").write("False")
+for StartBar in tqdm.tqdm(range(StartBarTime)):
+        time.sleep(0.1)
+if open("Data/Username.data", "r").read() == " ":
+    print("")
+    NewName = input("Name: ")
+    open("Data/Username.data", "w").write(NewName)
         
-    print("")
-    print("Sebo-Dos Version: 1.8")
-    print("")
-    print("Hello " + str(open("Data/Username.data", "r").read()) + "!")
+print("")
+print("Sebo-Dos Version: 1.8")
+print("")
+print("Hello " + str(open("Data/Username.data", "r").read()) + "!")
 
 def DosMain():
     Icommand = ["close", "return", "help"]
@@ -77,5 +53,4 @@ def DosMain():
         print("{" + MainInput + "} is not a command, try {help}.")
         DosMain()
 
-if WinClosed == False:
-    DosMain()
+DosMain()

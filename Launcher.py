@@ -1,8 +1,13 @@
 import time
 import os
 
-command = ["close", "help", "install", "sebo-dos"]
+command = ["close", "help", "reset", "install", "sebo-dos"]
 Start = True
+
+def DataError():
+        print("")
+        print(open("Errors/Data.error", "r").read())
+        time.sleep(10)
 
 while True:
     if Start == True:
@@ -22,29 +27,36 @@ while True:
         for commands in command:
             print(commands)
     elif MainInput == command[2]:
-        os.system("py Scripts/Install.py")
+        open("Data/Installed.data", "w").write("False")
+        open("Data/FirstStart.data", "w").write("True")
+        open("Data/Username.data", "w").write(" ")
     elif MainInput == command[3]:
+        os.system("py Scripts/Install.py")
+        open("Data/Installed.data", "w").write("True")
+    elif MainInput == command[4]:
         print("")
-        os.system("py Scripts/Sebo-Dos.py")
-        if open("Data/Closed.data", "r").read() == "True":
-            if open("Data/Returned.data", "r").read() == "True":
-                open("Data/Closed.data", "w").write("False")
-                open("Data/Returned.data", "w").write("False")
-            elif open("Data/Returned.data", "r").read() == "False":
-                open("Data/Closed.data", "w").write("False")
-                break
-            else:
+        if open("Data/Installed.data", "r").read() == "True":
+            os.system("py Scripts/Sebo-Dos.py")
+            if open("Data/Closed.data", "r").read() == "True":
+                if open("Data/Returned.data", "r").read() == "True":
+                    open("Data/Closed.data", "w").write("False")
+                    open("Data/Returned.data", "w").write("False")
+                elif open("Data/Returned.data", "r").read() == "False":
+                    open("Data/Closed.data", "w").write("False")
+                    break
+                else:
+                    DataError()
+                    break
+            elif open("Data/Closed.data", "r").read() == "False":
                 print("")
-                print(open("Errors/Data.error", "r").read())
-                time.sleep(10)
+                print(open("Errors/Crash.error", "r").read())
+            else:
+                DataError()
                 break
-        elif open("Data/Closed.data", "r").read() == "False":
-            print("")
-            print("Sebo-Dos is crashed!")
+        elif open("Data/Installed.data", "r").read() == "False":
+           print(open("Errors/NotInstalled.error", "r").read())
         else:
-            print("")
-            print(open("Errors/Data.error", "r").read())
-            time.sleep(10)
+            DataError()
             break
     else:
         print("{" + MainInput + "}" + "is not a command!")

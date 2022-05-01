@@ -63,4 +63,4 @@ while True:
             DataError()
             break
     else:
-        print("{" + MainInput + "}" + "is not a command!")
+        print("{" + MainInput + "} is not a command!")

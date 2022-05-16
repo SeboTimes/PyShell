@@ -1,4 +1,5 @@
 import os
 
-os.system("pip install --upgrade pip")
-os.system("pip install tqdm")
+def Main():
+    os.system("pip install --upgrade pip")
+    os.system("pip install tqdm")

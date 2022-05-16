@@ -1,4 +1,5 @@
-from Scripts import Install, SeboDos
+from Scripts import Install
+from Scripts import SeboDos
 import time
 import os
 
@@ -36,7 +37,7 @@ while True:
         open("./Data/FirstStart.data", "w").write("True")
         open("./Data/Username.data", "w").write(" ")
     elif MainInput == command[3]:
-        Install.Install()
+        Install.Main()
         open("./Data/Installed.data", "w").write("True")
     elif MainInput == command[4]:
         print("")

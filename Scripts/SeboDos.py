@@ -1,4 +1,5 @@
 from genericpath import exists
+from Scripts import Info
 import random
 import tqdm
 import time
@@ -19,7 +20,7 @@ def Main():
         open("./Data/Username.data", "w").write(NewName)
             
     print("")
-    print("Sebo-Dos Version: 1.8")
+    print("Sebo-Dos " + Info.Version)
     print("")
     print("Hello " + str(open("./Data/Username.data", "r").read()) + "!")
 

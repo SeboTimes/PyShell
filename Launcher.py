@@ -1,3 +1,4 @@
+from Scripts import Install, SeboDos
 import time
 import os
 
@@ -35,12 +36,12 @@ while True:
         open("./Data/FirstStart.data", "w").write("True")
         open("./Data/Username.data", "w").write(" ")
     elif MainInput == command[3]:
-        os.system("py Scripts/Install.py")
+        Install.Install()
         open("./Data/Installed.data", "w").write("True")
     elif MainInput == command[4]:
         print("")
         if open("./Data/Installed.data", "r").read() == "True":
-            os.system("py Scripts/Sebo-Dos.py")
+            SeboDos.Main()
             if open("./Data/Closed.data", "r").read() == "True":
                 if open("./Data/Returned.data", "r").read() == "True":
                     open("./Data/Closed.data", "w").write("False")

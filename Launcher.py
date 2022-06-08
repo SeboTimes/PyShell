@@ -3,10 +3,6 @@ from Scripts import PyShell
 import time
 import os
 
-if open("./Data/NewInstall.data", "r").read() == "True":
-    open("./Data/NewInstall.data", "w").write("False")
-    os.system("py Scripts/NewLaunch.py")
-
 command = ["close", "help", "reset", "install", "pyshell"]
 Start = True
 

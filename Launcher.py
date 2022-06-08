@@ -1,5 +1,5 @@
 from Scripts import Install
-from Scripts import SeboDos
+from Scripts import PyShell
 import time
 import os
 
@@ -7,7 +7,7 @@ if open("./Data/NewInstall.data", "r").read() == "True":
     open("./Data/NewInstall.data", "w").write("False")
     os.system("py Scripts/NewLaunch.py")
 
-command = ["close", "help", "reset", "install", "sebo-dos"]
+command = ["close", "help", "reset", "install", "pyshell"]
 Start = True
 
 def DataError():
@@ -42,7 +42,7 @@ while True:
     elif MainInput == command[4]:
         print("")
         if open("./Data/Installed.data", "r").read() == "True":
-            SeboDos.Main()
+            PyShell.Main()
             if open("./Data/Closed.data", "r").read() == "True":
                 if open("./Data/Returned.data", "r").read() == "True":
                     open("./Data/Closed.data", "w").write("False")

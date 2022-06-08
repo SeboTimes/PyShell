@@ -5,7 +5,7 @@ command = ["return", "help"]
 
 while True:
     print("")
-    MainInput = str(input("Sebo-Dos:\Games\ "))
+    MainInput = str(input("PyShell:\Games\ "))
     if MainInput == command[0]:
         break
     elif MainInput == command[1]:

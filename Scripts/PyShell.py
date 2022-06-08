@@ -20,15 +20,15 @@ def Main():
         open("./Data/Username.data", "w").write(NewName)
             
     print("")
-    print("Sebo-Dos " + Info.Version)
+    print("PyShell " + Info.Version)
     print("")
     print("Hello " + str(open("./Data/Username.data", "r").read()) + "!")
 
-    def DosMain():
+    def ShellMain():
         Icommand = ["close", "return", "help"]
 
         print("")
-        MainInput = str(input("Sebo-Dos:\ "))
+        MainInput = str(input("PyShell:\ "))
         if MainInput == Icommand[0]:
             open("./Data/Closed.data", "w").write("True")
         elif MainInput == Icommand[1]:
@@ -44,15 +44,15 @@ def Main():
             print("Programs:")
             for commands in os.listdir("Scripts/Programs/"):
                 print(commands[:-3])
-            DosMain()
+            ShellMain()
         elif exists("Scripts/Commands/" + MainInput + ".py") == True:
             os.system("py Scripts/Commands/" + MainInput + ".py")
-            DosMain()
+            ShellMain()
         elif exists("Scripts/Programs/" + MainInput + ".py") == True:
             os.system("py Scripts/Programs/" + MainInput + ".py")
-            DosMain()
+            ShellMain()
         else:
             print("{" + MainInput + "} is not a command, try {help}.")
-            DosMain()
+            ShellMain()
 
-    DosMain()
+    ShellMain()

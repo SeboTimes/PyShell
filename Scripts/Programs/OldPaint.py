@@ -5,7 +5,7 @@ while True:
     turtle.bgcolor("black")
     turtle.color("lightblue")
     turtle.forward(0)
-    PaintInput = str(input("Sebo-Dos:\paint\ "))
+    PaintInput = str(input("PyShell:\paint\ "))
     if PaintInput == "return":
         break
     elif PaintInput == "help":
@@ -37,7 +37,7 @@ while True:
         print("")
     elif PaintInput == "circle":
         print("")
-        PaintCircleSize = int(input("Sebo-Dos:\paint\circle\size\ "))
+        PaintCircleSize = int(input("PyShell:\paint\circle\size\ "))
         print("")
         turtle.circle(PaintCircleSize)
     elif PaintInput == "show":
@@ -54,7 +54,7 @@ while True:
         print("")
     elif PaintInput == "speed":
         print("")
-        PaintSpeed = int(input("Sebo-Dos:\paint\speed\ "))
+        PaintSpeed = int(input("PyShell:\paint\speed\ "))
         print("")
         turtle.speed(PaintSpeed)
     else:

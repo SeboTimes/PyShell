@@ -1,5 +1,5 @@
 import os
 
 print("")
-MainInput = str(input("Sebo-Dos:\cmd\ "))
+MainInput = str(input("PyShell:\cmd\ "))
 os.system(MainInput)

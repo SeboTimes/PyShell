@@ -14,8 +14,8 @@ while True:
             print(commands)
         print("")
         print("Games:")
-        for games in os.listdir("Scripts/Games/"):
-            if os.path.isfile("Scripts/Games/" + games) == True:
+        for games in os.listdir("./Scripts/Games/"):
+            if os.path.isfile("./Scripts/Games/" + games) == True:
                 print(games[:-3])
-    elif exists("Scripts/Games/" + MainInput + ".py") == True:
-        os.system("py Scripts/Games/" + MainInput + ".py")
+    elif exists("./Scripts/Games/" + MainInput + ".py") == True:
+        os.system("py ./Scripts/Games/" + MainInput + ".py")

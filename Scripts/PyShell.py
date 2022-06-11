@@ -38,18 +38,19 @@ def Main():
             print("Commands:")
             for Icommands in Icommand:
                 print(Icommands)
-            for commands in os.listdir("Scripts/Commands/"):
+            for commands in os.listdir("./Scripts/Commands/"):
                 print(commands[:-3])
             print("")
             print("Programs:")
-            for commands in os.listdir("Scripts/Programs/"):
-                print(commands[:-3])
+            for Program in os.listdir("./Scripts/Programs/"):
+                if os.path.isfile("./Scripts/Programs/" + Program) == True:
+                    print(Program[:-3])
             ShellMain()
-        elif exists("Scripts/Commands/" + MainInput + ".py") == True:
-            os.system("py Scripts/Commands/" + MainInput + ".py")
+        elif exists("./Scripts/Commands/" + MainInput + ".py") == True:
+            os.system("py ./Scripts/Commands/" + MainInput + ".py")
             ShellMain()
-        elif exists("Scripts/Programs/" + MainInput + ".py") == True:
-            os.system("py Scripts/Programs/" + MainInput + ".py")
+        elif exists("./Scripts/Programs/" + MainInput + ".py") == True:
+            os.system("py ./Scripts/Programs/" + MainInput + ".py")
             ShellMain()
         else:
             print("{" + MainInput + "} is not a command, try {help}.")

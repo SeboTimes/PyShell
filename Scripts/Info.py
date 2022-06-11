@@ -1,1 +1,1 @@
-Version = "v1.9 Alpha 2"
+Version = "v1.9"
